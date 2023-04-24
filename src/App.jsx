@@ -42,7 +42,7 @@ function App() {
 
     Swal.fire({
       icon: 'success',
-      title: 'Usuario creado con exito',
+      title: 'Registro exitoso',
       showConfirmButton: false,
       timer: 2500
     })
