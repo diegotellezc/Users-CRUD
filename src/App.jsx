@@ -1,6 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { BASE_URL, DEFAULT_VALUES } from "./constants.js"
+import { BASE_URL, DEFAULT_VALUES, DIEGO, JUNIOR, WILL } from "./constants.js"
 import Modal from "./components/Modal"
 import Header from "./components/Header"
 import { useForm } from "react-hook-form"
@@ -8,6 +8,7 @@ import UsersList from "./components/UsersList"
 import Swal from 'sweetalert2'
 import Footer from "./components/Footer"
 import './App.css'
+import ButtonDefault from "./components/ButtonDefault.jsx"
 
 
 function App() {
@@ -26,7 +27,6 @@ function App() {
       data.image_url = null
     }
 
-
     if(isUserIdToEdit){
       editUser(data)
     } else {
@@ -42,6 +42,21 @@ function App() {
     
   }
 
+  const createDefaultUsers = () => {
+    createUser(DIEGO)
+    createUser(JUNIOR)
+    createUser(WILL)
+
+    Swal.fire({
+      icon: 'success',
+      title: 'Registros exitosos',
+      showConfirmButton: false,
+      timer: 2500
+    })
+
+  }
+  
+
   const createUser = (data) => {
     const URL = BASE_URL + "/users/"
 
@@ -49,7 +64,7 @@ function App() {
     .then(() => {
       getAllUsers()
       reset(DEFAULT_VALUES)
-      setIsShowedForm(!isShowedForm)
+      setIsShowedForm(false)
     })
     .catch((err) => console.log(err))
   }
@@ -58,7 +73,15 @@ function App() {
     const URL = BASE_URL + `/users/${id}/`
 
     axios.delete(URL)
-    .then(() => getAllUsers())
+    .then(() => {
+      Swal.fire({
+        icon: 'success',
+        title: 'Eliminación exitosa',
+        showConfirmButton: false,
+        timer: 1500
+      })
+      getAllUsers()
+    })
     .catch((err) => console.log(err))
   }
 
@@ -99,10 +122,13 @@ function App() {
     <div className="font-sans flex flex-col min-h-screen">
       <Header setIsShowedForm={setIsShowedForm} />
 
-      <main className="flex-grow">
+      <main className="flex-grow relative">
         <Modal isShowedForm={isShowedForm} setIsShowedForm={setIsShowedForm} register={register} handleSubmit={handleSubmit} submit={submit} reset={reset} setIsUserIdToEdit={setIsUserIdToEdit} isUserIdToEdit={isUserIdToEdit} errors={errors} />
 
-        <UsersList users={users} deleteUser={deleteUser} handleClickEdit={handleClickEdit} />
+        {
+          users.length === 0 ? <ButtonDefault createDefaultUsers={createDefaultUsers} /> : <UsersList users={users} deleteUser={deleteUser} handleClickEdit={handleClickEdit} />
+        }
+        
       </main>
 
       <Footer />

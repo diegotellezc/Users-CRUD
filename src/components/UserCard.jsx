@@ -53,7 +53,7 @@ const UserCard = ({ user, deleteUser, handleClickEdit }) => {
                 <strong>Correo:</strong> {user.email}
                 </p>
                 <p className="text-gray-500 text-sm mb-2">
-                <strong>Cumpleaños: </strong>{user.birthday}
+                <strong>Cumpleaños: </strong>{user.birthday ? user.birthday : "desconocido" }
                 </p>
             </div>
         </article>

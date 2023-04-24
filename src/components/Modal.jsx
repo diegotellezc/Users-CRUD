@@ -96,7 +96,7 @@ const Modal = ({ isShowedForm, setIsShowedForm, register, handleSubmit, submit, 
                             message: "El formato de URL para imágenes no es válido"
                         }
                     })} />
-                    <span>{errors.image_url && errors.image_url.message}</span>
+                    <span className='text-primary-color text-xs'>{errors.image_url && errors.image_url.message}</span>
                 </div>
 
                 <i onClick={handleClickCloseModal} className='bx bx-x absolute right-2 top-1 text-2xl hover:text-primary-color cursor-pointer'></i>
