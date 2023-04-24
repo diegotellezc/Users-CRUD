@@ -25,33 +25,72 @@ const Modal = ({ isShowedForm, setIsShowedForm, register, handleSubmit, submit, 
 
                 <div className='grid gap-1'>
                     <label className='text-xs font-semibold' htmlFor="first_name">Nombres <span className='text-red-500'>*</span></label>
-                    <input className='border-[1px] rounded-sm bg-gray-100 p-1' id='first_name' type="text" {...register("first_name", { required: true, maxLength: 25, minLength: 1 })} />
-                    
+                    <input className='border-[1px] rounded-sm bg-gray-100 p-1 focus:ring-1 focus:ring-primary-color focus:border-primary-color' id='first_name' type="text" {...register("first_name", { 
+                        required: "Este campo es obligatorio", maxLength: {
+                            value: 25,
+                            message: "Ha superado el máximo de caracteres permitidos"
+                        }, minLength: {
+                            value: 2,
+                            message: "Debe ingresar más de un caracter"
+                        } })} />
+                    <span className='text-primary-color text-xs'>
+                        {errors.first_name && errors.first_name.message}
+                    </span>
                 </div>
-
+                
                 <div className='grid gap-1'>
                     <label className='text-xs font-semibold' htmlFor="last_name">Apellidos <span className='text-red-500'>*</span></label>
-                    <input className='border-[1px] rounded-sm bg-gray-100 p-1' id='last_name' type="text" {...register("last_name", { required: true, maxLength: 25, minLength: 1 })} />
+                    <input className='border-[1px] rounded-sm bg-gray-100 p-1 focus:ring-1 focus:ring-primary-color focus:border-primary-color' id='last_name' type="text" {...register("last_name", { 
+                        required: "Este campo es obligatorio", maxLength: {
+                            value: 25,
+                            message: "Ha superado el máximo de caracteres permitidos"
+                        }, minLength: {
+                            value: 2,
+                            message: "Debe ingresar más de un caracter"
+                        }})} />
+                    <span className='text-primary-color text-xs'>
+                        {errors.last_name && errors.last_name.message}
+                    </span>
                 </div>
 
                 <div className='grid gap-1'>
                     <label className='text-xs font-semibold' htmlFor="email">Correo <span className='text-red-500'>*</span></label>
-                    <input className='border-[1px] rounded-sm bg-gray-100 p-1' id='email' type="email" {...register("email", { required: true, maxLength: 250, minLength: 1 })} />
+                    <input className='border-[1px] rounded-sm bg-gray-100 p-1 focus:ring-1 focus:ring-primary-color focus:border-primary-color' id='email' type="email" {...register("email", { 
+                        required: "Este campo es obligatorio", maxLength: {
+                            value: 150,
+                            message: "Ha superado el máximo de caracteres permitidos"
+                        }, minLength: {
+                            value: 2,
+                            message: "Debe ingresar más de un caracter"
+                        } })} />
+                        <span className='text-primary-color text-xs'>
+                            {errors.email && errors.email.message}
+                        </span>
                 </div>
 
                 <div className='grid gap-1'>
                     <label className='text-xs font-semibold' htmlFor="password">Contraseña <span className='text-red-500'>*</span></label>
-                    <input className='border-[1px] rounded-sm bg-gray-100 p-1' id='password' type="password" {...register("password", { required: true, maxLength: 25, minLength: 1 })} />
+                    <input className='border-[1px] rounded-sm bg-gray-100 p-1 focus:ring-1 focus:ring-primary-color focus:border-primary-color' id='password' type="password" {...register("password", { 
+                        required: "Este campo es obligatorio", maxLength: {
+                            value: 25,
+                            message: "Ha superado el máximo de caracteres permitidos"
+                        }, minLength: {
+                            value: 8,
+                            message: "Debe ingresar mínimo 8 caracteres"
+                        } })} />
+                    <span className='text-primary-color text-xs'>
+                        {errors.password && errors.password.message}
+                    </span>
                 </div>
 
                 <div className='grid gap-1'>
                     <label className='text-xs font-semibold' htmlFor="birthday">Cumpleaños</label>
-                    <input className='border-[1px] rounded-sm bg-gray-100 p-1' id='birthday' type="date" {...register("birthday")} />
+                    <input className='border-[1px] rounded-sm bg-gray-100 p-1 focus:ring-1 focus:ring-primary-color focus:border-primary-color' id='birthday' type="date" {...register("birthday")} />
                 </div>
 
                 <div className='grid gap-1'>
                     <label className='text-xs font-semibold' htmlFor="image_url">URL de la imagen</label>
-                    <input className='border-[1px] rounded-sm bg-gray-100 p-1' id='image_url' type="text" {...register("image_url", {
+                    <input className='border-[1px] rounded-sm bg-gray-100 p-1 focus:ring-1 focus:ring-primary-color focus:border-primary-color placeholder:text-xs' id='image_url' type="text" placeholder='Formatos: jpg, jpeg, gif o png' {...register("image_url", {
                         pattern: {
                             value: /(http(s?):)([\/|.|\w|\s|-])*\.(?:jpg|gif|png|jpeg)/,
                             message: "El formato de URL para imágenes no es válido"

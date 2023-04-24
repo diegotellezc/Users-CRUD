@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form"
 import UsersList from "./components/UsersList"
 import Swal from 'sweetalert2'
 import Footer from "./components/Footer"
+import './App.css'
 
 
 function App() {

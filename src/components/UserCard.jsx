@@ -13,7 +13,7 @@ const UserCard = ({ user, deleteUser, handleClickEdit }) => {
 
 
     return (
-        <article className="relative rounded-lg bg-white shadow-md p-4 w-[300px] h-[400px] border-[1px] border-transparent hover:border-secondary-color hover:shadow-2xl"
+        <article className="relative rounded-lg bg-white shadow-md p-4 w-[300px] h-[400px] border-[1px] border-transparent hover:border-primary-color hover:shadow-2xl"
         onMouseEnter={showingButtons}
         onMouseLeave={hidingButtons}
         >
