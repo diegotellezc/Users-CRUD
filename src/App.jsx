@@ -1,21 +1,13 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
+import { BASE_URL, DEFAULT_VALUES } from "./constants.js"
 import Modal from "./components/Modal"
 import Header from "./components/Header"
 import { useForm } from "react-hook-form"
 import UsersList from "./components/UsersList"
 import Swal from 'sweetalert2'
+import Footer from "./components/Footer"
 
-const BASE_URL = "https://users-crud.academlo.tech"
-
-const DEFAULT_VALUES = {
-  first_name: "",
-  last_name: "",
-  email: "",
-  password: "",
-  birthday: "",
-  image_url: ""
-}
 
 function App() {
   const [users, setUsers] = useState([])
@@ -82,13 +74,11 @@ function App() {
     .catch((err) => console.log(err))
   }
   
-
   const handleClickEdit = (data) => {
     setIsShowedForm((isShowedForm) => !isShowedForm )
     reset(data)
     setIsUserIdToEdit(data.id)
   }
-  
   
   const getAllUsers = () => {
     const URL = BASE_URL + "/users/"
@@ -103,14 +93,19 @@ function App() {
     getAllUsers()
   }, [])
 
+
   return (
-    <main className="font-sans">
+    <div className="font-sans flex flex-col min-h-screen">
       <Header setIsShowedForm={setIsShowedForm} />
 
-      <Modal isShowedForm={isShowedForm} setIsShowedForm={setIsShowedForm} register={register} handleSubmit={handleSubmit} submit={submit} reset={reset} setIsUserIdToEdit={setIsUserIdToEdit} isUserIdToEdit={isUserIdToEdit} errors={errors} />
+      <main className="flex-grow">
+        <Modal isShowedForm={isShowedForm} setIsShowedForm={setIsShowedForm} register={register} handleSubmit={handleSubmit} submit={submit} reset={reset} setIsUserIdToEdit={setIsUserIdToEdit} isUserIdToEdit={isUserIdToEdit} errors={errors} />
 
-      <UsersList users={users} deleteUser={deleteUser} handleClickEdit={handleClickEdit} />
-    </main>
+        <UsersList users={users} deleteUser={deleteUser} handleClickEdit={handleClickEdit} />
+      </main>
+
+      <Footer />
+    </div>
   )
 }
 
