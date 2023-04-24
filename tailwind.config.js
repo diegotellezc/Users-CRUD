@@ -7,8 +7,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        "primary-color": "#555A88",
-        "delete-color": "#D85D5D",
+        "primary-color": "#D85D5D",
+        "secondary-color": "#3C486B",
         "text-color": "#000000"
       }
     },
