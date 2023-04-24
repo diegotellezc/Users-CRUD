@@ -4,6 +4,7 @@ import Modal from "./components/Modal"
 import Header from "./components/Header"
 import { useForm } from "react-hook-form"
 import UsersList from "./components/UsersList"
+import Swal from 'sweetalert2'
 
 const BASE_URL = "https://users-crud.academlo.tech"
 
@@ -38,6 +39,13 @@ function App() {
     } else {
       createUser(data)
     }
+
+    Swal.fire({
+      icon: 'success',
+      title: 'Usuario creado con exito',
+      showConfirmButton: false,
+      timer: 2500
+    })
     
   }
 

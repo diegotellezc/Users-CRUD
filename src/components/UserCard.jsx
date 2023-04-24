@@ -31,11 +31,11 @@ const UserCard = ({ user, deleteUser, handleClickEdit }) => {
             >
                 <div className="flex flex-col justify-center gap-3 text-xl">
                     <button onClick={() => handleClickEdit(user)}
-                    className="bg-blue-500 text-white rounded-md px-4 py-2 mr-2 w-32 hover:bg-white hover:text-blue-500 hover:shadow-md hover:shadow-blue-500">
+                    className="bg-secondary-color text-white rounded-md px-4 py-2 mr-2 w-32 hover:bg-white hover:text-secondary-color hover:shadow-md hover:shadow-secondary-color">
                         Editar
                     </button>
                     <button onClick={() => deleteUser(user.id)}
-                    className="bg-red-500 text-white rounded-md px-4 py-2 w-32 hover:bg-white hover:text-red-500 hover:shadow-sm hover:shadow-red-500">
+                    className="bg-primary-color text-white rounded-md px-4 py-2 w-32 hover:bg-white hover:text-primary-color hover:shadow-sm hover:shadow-primary-color">
                         Eliminar
                     </button>
                 </div>
