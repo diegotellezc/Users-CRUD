@@ -22,7 +22,7 @@ export const JUNIOR = {
     birthday: "1996-10-31",
     email: "junior-elcrack@gmail.com",
     first_name: "Junior",
-    image_url: "https://contents.bebee.com/users/id/NRsaM62d34fc384fc8/_avatar-WXCOt-400.png",
+    image_url: "https://imgur.com/fRMq1m4.png",
     last_name: "Pacheco",
     password: "soydesaravena"
 }
