@@ -44,15 +44,17 @@ const UserCard = ({ user, deleteUser, handleClickEdit }) => {
             <div
                 className={`${
                 showButtons ? "opacity-20" : "opacity-100"
-                } transition-opacity duration-300 absolute bottom-0 left-0 w-full px-3 py-2 bg-white rounded-b-lg`}
+                } transition-opacity duration-300 absolute bottom-0 left-0 w-full px-3 py-2 bg-white rounded-b-lg overflow-hidden`}
             >
-                <h2 className="text-lg font-bold my-2 text-center ">
+                <h2 className="text-lg font-bold my-2 text-center truncate">
                 {`${user.first_name}  ${user.last_name}`}
                 </h2>
-                <p className="text-gray-500 text-sm mb-2">
+
+                <p className="text-gray-500 text-sm mb-2 truncate">
                 <strong>Correo:</strong> {user.email}
                 </p>
-                <p className="text-gray-500 text-sm mb-2">
+
+                <p className="text-gray-500 text-sm mb-2 truncate">
                 <strong>Cumpleaños: </strong>{user.birthday ? user.birthday : "desconocido" }
                 </p>
             </div>
