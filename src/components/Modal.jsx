@@ -21,17 +21,17 @@ const Modal = ({ isShowedForm, setIsShowedForm, register, handleSubmit, submit, 
 
             <form onSubmit={handleSubmit(submit)} className='bg-white p-4 grid gap-4 rounded-md w-[300px] relative overflow-y-auto sm:w-[450px] sm:py-6 sm:px-8'>
 
-                <h3 className='text-2xl font-bold text-secondary-color'>{isUserIdToEdit ? "Editar usuario" : "Nuevo usuario"}</h3>
+                <h3 className='text-2xl font-bold text-secondary-color'>{isUserIdToEdit ? "Update user" : "New user"}</h3>
 
                 <div className='grid gap-1'>
-                    <label className='text-xs font-semibold' htmlFor="first_name">Nombres <span className='text-red-500'>*</span></label>
+                    <label className='text-xs font-semibold' htmlFor="first_name">Name <span className='text-red-500'>*</span></label>
                     <input className='border-[1px] rounded-sm bg-gray-100 p-1 focus:ring-1 focus:ring-primary-color focus:border-primary-color' id='first_name' type="text" {...register("first_name", { 
-                        required: "Este campo es obligatorio", maxLength: {
+                        required: "This field is required", maxLength: {
                             value: 25,
-                            message: "Ha superado el máximo de caracteres permitidos"
+                            message: "You have exceeded the maximum characters allowed"
                         }, minLength: {
                             value: 2,
-                            message: "Debe ingresar más de un caracter"
+                            message: "You must enter more than one character"
                         } })} />
                     <span className='text-primary-color text-xs'>
                         {errors.first_name && errors.first_name.message}
@@ -39,14 +39,14 @@ const Modal = ({ isShowedForm, setIsShowedForm, register, handleSubmit, submit, 
                 </div>
                 
                 <div className='grid gap-1'>
-                    <label className='text-xs font-semibold' htmlFor="last_name">Apellidos <span className='text-red-500'>*</span></label>
+                    <label className='text-xs font-semibold' htmlFor="last_name">Last name<span className='text-red-500'>*</span></label>
                     <input className='border-[1px] rounded-sm bg-gray-100 p-1 focus:ring-1 focus:ring-primary-color focus:border-primary-color' id='last_name' type="text" {...register("last_name", { 
-                        required: "Este campo es obligatorio", maxLength: {
+                        required: "This field is required", maxLength: {
                             value: 25,
-                            message: "Ha superado el máximo de caracteres permitidos"
+                            message: "You have exceeded the maximum characters allowed"
                         }, minLength: {
                             value: 2,
-                            message: "Debe ingresar más de un caracter"
+                            message: "You must enter more than one character"
                         }})} />
                     <span className='text-primary-color text-xs'>
                         {errors.last_name && errors.last_name.message}
@@ -54,14 +54,14 @@ const Modal = ({ isShowedForm, setIsShowedForm, register, handleSubmit, submit, 
                 </div>
 
                 <div className='grid gap-1'>
-                    <label className='text-xs font-semibold' htmlFor="email">Correo <span className='text-red-500'>*</span></label>
+                    <label className='text-xs font-semibold' htmlFor="email">Email <span className='text-red-500'>*</span></label>
                     <input className='border-[1px] rounded-sm bg-gray-100 p-1 focus:ring-1 focus:ring-primary-color focus:border-primary-color' id='email' type="email" {...register("email", { 
-                        required: "Este campo es obligatorio", maxLength: {
+                        required: "This field is required", maxLength: {
                             value: 150,
-                            message: "Ha superado el máximo de caracteres permitidos"
+                            message: "You have exceeded the maximum characters allowed"
                         }, minLength: {
                             value: 2,
-                            message: "Debe ingresar más de un caracter"
+                            message: "You must enter more than one character"
                         } })} />
                         <span className='text-primary-color text-xs'>
                             {errors.email && errors.email.message}
@@ -69,14 +69,14 @@ const Modal = ({ isShowedForm, setIsShowedForm, register, handleSubmit, submit, 
                 </div>
 
                 <div className='grid gap-1'>
-                    <label className='text-xs font-semibold' htmlFor="password">Contraseña <span className='text-red-500'>*</span></label>
+                    <label className='text-xs font-semibold' htmlFor="password">Password <span className='text-red-500'>*</span></label>
                     <input className='border-[1px] rounded-sm bg-gray-100 p-1 focus:ring-1 focus:ring-primary-color focus:border-primary-color' id='password' type="password" {...register("password", { 
-                        required: "Este campo es obligatorio", maxLength: {
+                        required: "This field is required", maxLength: {
                             value: 25,
-                            message: "Ha superado el máximo de caracteres permitidos"
+                            message: "You have exceeded the maximum characters allowed"
                         }, minLength: {
                             value: 8,
-                            message: "Debe ingresar mínimo 8 caracteres"
+                            message: "You must enter at least 8 characters"
                         } })} />
                     <span className='text-primary-color text-xs'>
                         {errors.password && errors.password.message}
@@ -84,16 +84,16 @@ const Modal = ({ isShowedForm, setIsShowedForm, register, handleSubmit, submit, 
                 </div>
 
                 <div className='grid gap-1'>
-                    <label className='text-xs font-semibold' htmlFor="birthday">Cumpleaños</label>
+                    <label className='text-xs font-semibold' htmlFor="birthday">Birthday</label>
                     <input className='border-[1px] rounded-sm bg-gray-100 p-1 focus:ring-1 focus:ring-primary-color focus:border-primary-color' id='birthday' type="date" {...register("birthday")} />
                 </div>
 
                 <div className='grid gap-1'>
-                    <label className='text-xs font-semibold' htmlFor="image_url">URL de la imagen</label>
+                    <label className='text-xs font-semibold' htmlFor="image_url">Image url</label>
                     <input className='border-[1px] rounded-sm bg-gray-100 p-1 focus:ring-1 focus:ring-primary-color focus:border-primary-color placeholder:text-xs' id='image_url' type="text" placeholder='Formatos: jpg, jpeg, gif o png' {...register("image_url", {
                         pattern: {
                             value: /(http(s?):)([\/|.|\w|\s|-])*\.(?:jpg|gif|png|jpeg)/,
-                            message: "El formato de URL para imágenes no es válido"
+                            message: "The URL format for images is invalid"
                         }
                     })} />
                     <span className='text-primary-color text-xs'>{errors.image_url && errors.image_url.message}</span>
@@ -101,7 +101,7 @@ const Modal = ({ isShowedForm, setIsShowedForm, register, handleSubmit, submit, 
 
                 <i onClick={handleClickCloseModal} className='bx bx-x absolute right-2 top-1 text-2xl hover:text-primary-color cursor-pointer'></i>
 
-                <button className='bg-primary-color text-white p-2 text-sm border-2 border-transparent hover:text-[0.9rem] hover:border-secondary-color transition-colors rounded-md sm:max-w-max sm:mx-auto sm:px-8'>{isUserIdToEdit ? "Guardar cambios" : "Agregar nuevo usuario"}</button>
+                <button className='bg-primary-color text-white p-2 text-sm border-2 border-transparent hover:text-[0.9rem] hover:border-secondary-color transition-colors rounded-md sm:max-w-max sm:mx-auto sm:px-8'>{isUserIdToEdit ? "Save changes" : "Add new user"}</button>
             </form>
         
         </section>

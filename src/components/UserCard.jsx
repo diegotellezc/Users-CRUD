@@ -32,11 +32,11 @@ const UserCard = ({ user, deleteUser, handleClickEdit }) => {
                 <div className="flex flex-col justify-center gap-3 text-xl">
                     <button onClick={() => handleClickEdit(user)}
                     className="bg-secondary-color text-white rounded-md px-4 py-2 mr-2 w-32 hover:bg-white hover:text-secondary-color hover:shadow-md hover:shadow-secondary-color">
-                        Editar
+                        Update
                     </button>
                     <button onClick={() => deleteUser(user.id)}
                     className="bg-primary-color text-white rounded-md px-4 py-2 w-32 hover:bg-white hover:text-primary-color hover:shadow-sm hover:shadow-primary-color">
-                        Eliminar
+                        Delete
                     </button>
                 </div>
             </div>
@@ -51,11 +51,11 @@ const UserCard = ({ user, deleteUser, handleClickEdit }) => {
                 </h2>
 
                 <p className="text-gray-500 text-sm mb-2 truncate">
-                <strong>Correo:</strong> {user.email}
+                <strong>Email:</strong> {user.email}
                 </p>
 
                 <p className="text-gray-500 text-sm mb-2 truncate">
-                <strong>Cumpleaños: </strong>{user.birthday ? user.birthday : "desconocido" }
+                <strong>Birthday: </strong>{user.birthday ? user.birthday : "Unknown" }
                 </p>
             </div>
         </article>

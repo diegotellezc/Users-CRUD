@@ -1,6 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { BASE_URL, DEFAULT_VALUES, DIEGO, JUNIOR, WILL } from "./constants.js"
+import { BASE_URL, DEFAULT_VALUES, DIEGO, ELON, WILL } from "./constants.js"
 import Modal from "./components/Modal"
 import Header from "./components/Header"
 import { useForm } from "react-hook-form"
@@ -35,7 +35,7 @@ function App() {
 
     Swal.fire({
       icon: 'success',
-      title: 'Registro exitoso',
+      title: 'Successful registration',
       showConfirmButton: false,
       timer: 2500
     })
@@ -44,12 +44,12 @@ function App() {
 
   const createDefaultUsers = () => {
     createUser(DIEGO)
-    createUser(JUNIOR)
+    createUser(ELON)
     createUser(WILL)
 
     Swal.fire({
       icon: 'success',
-      title: 'Registros exitosos',
+      title: 'Successful registrations',
       showConfirmButton: false,
       timer: 2500
     })
@@ -76,7 +76,7 @@ function App() {
     .then(() => {
       Swal.fire({
         icon: 'success',
-        title: 'Eliminación exitosa',
+        title: 'Deleted successfully',
         showConfirmButton: false,
         timer: 1500
       })

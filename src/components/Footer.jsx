@@ -22,7 +22,7 @@ const Footer = () => {
                 </a>
             </div>
 
-            <p className='md:order-2 text-secondary-color'>• All rights reserved ©2023 • </p>
+            <p className='md:order-2 text-secondary-color'>• Copyright ©2023 | All rights reserved •</p>
             <p className='text-secondary-color'>@diegotellezc</p>
         </footer>
     )
