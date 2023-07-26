@@ -59,7 +59,8 @@ function App() {
 
   const createUser = (data) => {
     const URL = BASE_URL + "/users/"
-
+    console.log(data)
+    
     axios.post(URL, data)
     .then(() => {
       getAllUsers()
